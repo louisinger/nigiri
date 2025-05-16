@@ -4,10 +4,10 @@ services:
   bitcoin:
     image: bitcoin/bitcoin:29
     container_name: bitcoin
-    user: "${UID:-1000}:${GID:-1000}"
-    environment:
-      UID: ${UID:-1000}
-      GID: ${GID:-1000}
+    # user: "${UID:-1000}:${GID:-1000}"
+    # environment:
+    #   UID: ${UID:-1000}
+    #   GID: ${GID:-1000}
     restart: on-failure
     stop_grace_period: 30s
     ports:
@@ -28,6 +28,7 @@ services:
     ports:
       - 18884:18884
       - 18886:18886
+      - 8332:8332
       # ZMQ
       - 38332:38332
       - 38333:38333
